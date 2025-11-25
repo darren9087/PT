@@ -1,0 +1,187 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="PT.MainPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <Grid ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Profile pic -->
+                <Border 
+                    Grid.Column="0"
+                    Stroke="#FF7F50"
+                    StrokeThickness="3"
+                    StrokeShape="RoundRectangle 100"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    HorizontalOptions="Start">
+                    <Image Source="owner.jpeg"
+                           Aspect="AspectFill"/>
+                </Border>
+
+                <VerticalStackLayout Grid.Column="1" Spacing="10" VerticalOptions="Center">
+
+
+
+                    <!-- Top row -->
+                    <Grid ColumnSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                            <Label Text="9" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="Posts" FontSize="12"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                            <Label Text="688M" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="Followers" FontSize="12"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                            <Label Text="$18.6B" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="Net Worth" FontSize="12"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Bio -->
+            <Label FontSize="14">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Joe Kish" FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="South Korea, Performer." FontSize="13"/>
+
+
+            <!-- Expand Bio -->
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="2">
+                        <Label Text="Name's Joe Kish. A well known performer that likes to dance and sing."
+                   MaxLines="2"
+                   LineBreakMode="TailTruncation"
+                   FontSize="14"
+                   HorizontalTextAlignment="Center"/>
+
+                        <!-- Read more label -->
+                        <Label Text="Read more"
+                        TextColor="Purple"
+                         FontAttributes="Bold"
+                        FontSize="14"
+                         HorizontalOptions="Center"/>
+                         </VerticalStackLayout>
+                </toolkit:Expander.Header>
+
+                <!-- Expanded content -->
+                <toolkit:Expander.Content>
+                    <Label Text="I love kimchi and dogs too."
+               FontSize="14"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"/>
+                </toolkit:Expander.Content>
+            </toolkit:Expander>
+
+
+
+            <!-- Stories -->
+            <Grid ColumnSpacing="10" Padding="0,10,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Story 1 -->
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Border HeightRequest="70" WidthRequest="70"
+                            Stroke="#888" StrokeThickness="2"
+                            StrokeShape="RoundRectangle 35">
+                        <Image Source="dance.jpg" Aspect="AspectFill"/>
+                    </Border>
+                    <Label Text="Dance" FontSize="11" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <!-- Story 2 -->
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Border HeightRequest="70" WidthRequest="70"
+                            Stroke="#888" StrokeThickness="2"
+                            StrokeShape="RoundRectangle 35">
+                        <Image Source="hometown.jpg" Aspect="AspectFill"/>
+                    </Border>
+                    <Label Text="Hometown" FontSize="11" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <!-- Story 3 -->
+                <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                    <Border HeightRequest="70" WidthRequest="70"
+                            Stroke="#888" StrokeThickness="2"
+                            StrokeShape="RoundRectangle 35">
+                        <Image Source="song.jpg" Aspect="AspectFill"/>
+                    </Border>
+                    <Label Text="Song" FontSize="11" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <!-- Story 4 -->
+                <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
+                    <Border HeightRequest="70" WidthRequest="70"
+                            Stroke="Pink" StrokeThickness="2"
+                            StrokeShape="RoundRectangle 35">
+                        <Image Source="travel.jpg" Aspect="AspectFill"/>
+                    </Border>
+                    <Label Text="Travel" FontSize="11" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+
+
+
+
+            <!--  Pictures  -->
+            <CollectionView ItemsLayout="VerticalGrid, 3"
+                Margin="0"
+                SelectionMode="None"
+                BackgroundColor="Transparent">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type ImageSource}">
+                        <FileImageSource File="image2.jpg"/>
+                        <FileImageSource File="image3.jpg"/>
+                        <FileImageSource File="image4.png"/>
+                        <FileImageSource File="image5.jpeg"/>
+                        <FileImageSource File="image6.jpeg"/>
+                        <FileImageSource File="image7.jpeg"/>
+                        <FileImageSource File="image8.jpg"/>
+                        <FileImageSource File="image9.jpg"/>
+                        <FileImageSource File="image10.jpg"/>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="0" Margin="0" StrokeThickness="0" BackgroundColor="Transparent">
+                            <Image Source="{Binding .}" Aspect="AspectFill" 
+                       HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
